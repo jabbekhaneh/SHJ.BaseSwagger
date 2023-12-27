@@ -30,11 +30,10 @@ public static class SHJBaseSwaggerConfigurationDependencies
         services.RegisterApiVersioning();
     }
 
-    public static IApplicationBuilder RegisterUseSwaggerAndUI(this IApplicationBuilder app,IServiceProvider serviceProvider)
+    public static IApplicationBuilder RegisterUseSwaggerAndUI(this IApplicationBuilder app)
     {        
         app.UseSwagger();
         app.UseSwaggerUI();
-
         return app;
     }
 

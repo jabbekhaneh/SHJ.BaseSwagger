@@ -22,7 +22,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
 
-    app.RegisterUseSwaggerAndUI(app.Services);
+    app.RegisterUseSwaggerAndUI();
 
 }
 
