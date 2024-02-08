@@ -32,7 +32,7 @@ srvices.RegisterSwagger(options =>
 ### Registering with `IApplicationBuilder`
 
 ```
- app.RegisterUseSwaggerAndUI(app.Services);
+ app.RegisterUseSwaggerAndUI();
 ```
 
 
