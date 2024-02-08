@@ -28,7 +28,7 @@ internal class BaseSwaggerUIOptionsConfig : IConfigureNamedOptions<SwaggerUIOpti
         foreach (var desc in _apiVersionDescriptionProvider.ApiVersionDescriptions)
         {
             options.SwaggerEndpoint($"/swagger/{desc.GroupName}/swagger.json", 
-                $"{_options.Value.ProjectName} - {desc.GroupName.ToUpper()}");
+                $"{_options.Value.DocumentName} - {desc.GroupName.ToUpper()}");
         }
     }
 }

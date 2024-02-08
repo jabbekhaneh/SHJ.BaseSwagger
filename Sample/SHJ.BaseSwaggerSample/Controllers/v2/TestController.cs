@@ -3,7 +3,7 @@ using SHJ.BaseSwaggerSample;
 
 namespace SHJ.BaseSwaggerSample.Controllers.v2;
 
-[ApiVersion("2.0")]
+[ApiVersion("2.1")]
 public class TestController : BaseController
 {
     [HttpGet]

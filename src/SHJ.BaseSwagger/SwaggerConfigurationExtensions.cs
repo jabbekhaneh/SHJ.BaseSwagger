@@ -16,6 +16,7 @@ internal static class SwaggerConfigurationExtensions
             option.AssumeDefaultVersionWhenUnspecified = true;
             option.ReportApiVersions = true;
         });
+
         services.AddVersionedApiExplorer(options =>
         {
             options.SubstituteApiVersionInUrl = true;
@@ -28,8 +29,6 @@ internal static class SwaggerConfigurationExtensions
         {
             option.UseGeneralRoutePrefix("api/v{version:apiVersion}");
         });
-
-
     }
 
     public static void UseGeneralRoutePrefix(this MvcOptions opts, IRouteTemplateProvider routeAttribute)

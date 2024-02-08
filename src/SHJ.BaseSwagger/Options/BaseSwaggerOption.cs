@@ -8,21 +8,34 @@ public class BaseSwaggerOption
     {
         VersionsDocumentation = new();
     }
-    public string ProjectName { get; set; } = "Portal Document";
+    public string DocumentName { get; set; } = "Portal Document";
     public List<BaseVersionDocumentation> VersionsDocumentation { get; set; }
-
+    public BaseSwaggerSecurityDefinition Authorize { get; set; } = new BaseSwaggerSecurityDefinition
+    {
+        Key = "_OAuth2_",
+        SecurityScheme = new OpenApiSecurityScheme
+        {
+            Scheme= "_OAuth2_",
+            Type = SecuritySchemeType.OAuth2,
+            Name = "_NAME_",
+            Flows = new OpenApiOAuthFlows
+            {
+                Password = new OpenApiOAuthFlow
+                {
+                    TokenUrl = new Uri("/api/v1/Account/SingIn", UriKind.Relative),
+                    AuthorizationUrl = new Uri("/api/v1/Account/SingIn", UriKind.Relative),
+                    Scopes = new Dictionary<string, string>
+                    {
+                        { "readAccess", "Access read operations" },
+                        { "writeAccess", "Access write operations" }
+                    }
+                }
+            }
+        }
+    };
 }
-
-public class BaseVersionDocumentation
+public class BaseSwaggerSecurityDefinition
 {
-
-    public string Title { get; set; } = string.Empty;
-    public string Vesrion { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
-    public string UrlDocument { get; set; } = string.Empty;
-    public string Email { get; set; } = string.Empty;
-    public string Author { get; set; } = string.Empty;
-    public Uri? URL { get; set; } = new Uri("https://github.com/Jabbekhaneh/SHJ.BaseSwagger");
-    public OpenApiLicense? License { get; set; }
-    
+    public string? Key { get; set; }
+    public OpenApiSecurityScheme? SecurityScheme { get; set; }
 }

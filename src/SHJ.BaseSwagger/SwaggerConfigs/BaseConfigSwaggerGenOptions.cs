@@ -35,12 +35,13 @@ public class BaseConfigSwaggerGenOptions : IConfigureNamedOptions<SwaggerGenOpti
                 var versionDocument = new BaseVersionDocumentation
                 {
                     Vesrion = desc.GroupName,
-                    Description = $"{_options.Value.ProjectName}: API Version {desc.GroupName}",
+                    Description = $"{_options.Value.DocumentName}: API Version {desc.GroupName}",
                 };
                 options.SwaggerDoc(desc.GroupName, CreateVersionDocumnet(versionDocument));
             }
-
         }
+        options.SwaggerGeneratorOptions.SecuritySchemes.Add(_options.Value.Authorize.Key,
+            _options.Value.Authorize.SecurityScheme);
     }
     /// <summary>
     /// Configure Swagger Options. Inherited from the Interface
